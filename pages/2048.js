@@ -26,6 +26,20 @@ export default function Page2048() {
 
 const SQUARE_SIZE = 80, GAP = 10, ANIM_SPEED = 8;
 
+const TILE_COLORS = {
+  2: '#d9dfff',
+  4: '#cdd4ff',
+  8: '#b3bffe',
+  16: '#9aaafe',
+  32: '#8e9ffe',
+  64: '#8194fe',
+  128: '#748afe',
+  256: '#e2efa7',
+  512: '#dbeb91',
+  1024: '#d4e77b',
+  2048: '#cce365'
+}
+
 let grid = [
   [0, 0, 0, 0],
   [0, 0, 0, 0],
@@ -179,7 +193,7 @@ const drawPieces = (context) => {
 
       const cellCanMove = canMove(x, y)
 
-      context.fillStyle = 'aqua'  
+      context.fillStyle = TILE_COLORS[value]  
       context.fillRect(x * (SQUARE_SIZE + GAP) + (cellCanMove ? animOffset.x : 0), y * (SQUARE_SIZE + GAP) + (cellCanMove ?animOffset.y : 0), SQUARE_SIZE, SQUARE_SIZE)
 
       context.fillStyle = 'black'  
